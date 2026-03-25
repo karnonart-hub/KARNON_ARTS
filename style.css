@@ -144,7 +144,8 @@ header {
 .contact-section { background-image: url(./sombre.jpeg);
     background-position: center;
     background-size: contain;
-     padding: 40px 5%; }
+     padding: 40px 5%;
+     }
 .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
 .contact-card {
     background:transparent;

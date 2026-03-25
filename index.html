@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karnon Art Studio</title>
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Karnon ART</title>
+    <link rel="icon" href="icon.jpeg">
+</head>
+<body>
+
+    <header class="tete">
+        <div class="logo">
+            <img src="icon.jpeg" alt="Logo">
+        </div>
+        <nav class="main-nav">
+            <button class="menu-trigger" onclick="toggleMenu()" id="textt">MENU <span>▼</span></button>
+            <div class="menu-dropdown" id="menuDropdown">
+                <a href="#" onclick="showOrderPage()">COMMANDER</a>
+                <a href="#" onclick="showSkillsPage()">COMPÉTENCES</a>
+            </div>
+        </nav>
+    </header>
+
+    <main id="mainPage">
+        <section class="hero-video">
+            <video autoplay loop muted playsinline class="video-bg">
+                <source src="./dessin.mp4" type="video/mp4">
+            </video>
+            <div class="hero-content">
+                <h1 class="neon-text">MON CATALOGUE D'ARTISTE</h1>
+            </div>
+        </section>
+        <div class="write">
+                <p class="typewriter">JE SUIS <span class="typed-text"></span></p>
+            </div>
+
+        <section class="gallery-section">
+            <div class="grid-container">
+                <div class="card card-purple"><img src="./ccrane.jpeg" alt="Art 1"></div>
+                <div class="card card-red"><img src="./ssmooks.jpeg" alt="Art 2"></div>
+                <div class="card card-green"><img src="./spaysage.jpeg" alt="Art 3"></div>
+                 <div class="card card-yellow"><img src="./street.jpeg" alt="Art 5"></div>
+                  <div class="card card-yellow"><img src="./pop.jpeg" alt="Art 5"></div>
+                   <div class="card card-yellow"><img src="./femme.jpeg" alt="Art 5"></div>
+                 <div class="card card-yellow"><img src="./alestaque.jpeg" alt="Art 5"></div>
+                  <div class="card card-yellow"><img src="./croquis.jpeg" alt="Art 5"></div>
+                   <div class="card card-yellow"><img src="./parfum.jpeg" alt="Art 2"></div>
+                    <div class="card card-yellow"><img src="./pia.jpeg" alt="Art 5"></div>
+                <div class="card card-blue"><img src="./hhawks.jpeg" alt="Art 4"></div>
+                 <div class="card card-yellow"><img src="./chat.jpeg" alt="Art 5"></div>
+                  <div class="card card-yellow"><img src="./venom.jpeg" alt="Art 5"></div>
+                <div class="card card-yellow"><img src="./naruto.jpeg" alt="Art 5"></div>
+                 <div class="card card-yellow"><img src="./chien.jpeg" alt="Art 2"></div>
+                 <div class="card card-yellow"><img src="./ggojo.jpeg" alt="Art è"></div>
+                  <div class="card card-yellow"><img src="./double.jpeg" alt="Art 8"></div>
+                <div class="card card-orange"><img src="./shappy.jpeg" alt="Art 6"></div>
+            </div>
+        </section>
+
+        <footer class="contact-section">
+            <div class="contact-grid">
+                <a href="https://wa.me/2250141429830" target="_blank" class="contact-card">PARLER AVEC L'ARTISTE</a>
+                <a href="https://wa.me/2250546474849" target="_blank" class="contact-card">PARLER AVEC LE MANAGER</a>
+                <a href="" download="app-release.apk" class="contact-card">Téléchargement pour android</a>
+            </div>
+        </footer>
+    </main>
+
+    <div id="shadowsPage" class="shadows-overlay">
+        
+        <section class="glass-form-container" id="orderInterface">
+            <span class="close-btn" onclick="closeShadows()">&times;</span>
+            <h1>COMMANDER</h1>
+            <form id="orderForm">
+                <div class="input-box">
+                    <label>STYLE SOUHAITÉ</label>
+                    <select id="styleSelect">
+                        <option value="Croquis">Croquis</option>
+                        <option value="Dessin en couleur">Dessin en couleur</option>
+                        <option value="Peinture">Peinture</option>
+                    </select>
+                    <i class="fa-solid fa-palette"></i>
+                </div>
+                <div class="input-box">
+                    <label>SUPPORT</label>
+                    <select id="supportSelect">
+                        <option value="Canson">Canson</option>
+                        <option value="Toile">Toile</option>
+                    </select>
+                    <i class="fa-solid fa-layer-group"></i>
+                </div>
+                <div class="input-box">
+                    <textarea id="descInput" placeholder="DÉCRIVEZ VOTRE PROJET..."></textarea>
+                    <i class="fa-solid fa-pen-nib"></i>
+                </div>
+                <button type="button" class="login-btn" onclick="sendOrderToWhatsApp()">VALIDER LA COMMANDE</button>
+            </form>
+           
+        </section>
+
+        <section class="glass-form-container" id="skillsInterface" style="display:none;">
+            <span class="close-btn" onclick="closeShadows()">&times;</span>
+            <h1>COMPÉTENCES</h1>
+            <div class="skill-item">
+                <span>DESSIN</span>
+                <div class="skill-bar-bg"><div class="skill-progress" style="width: 90%;"></div></div>
+            </div>
+            <div class="skill-item">
+                <span>PEINTURE</span>
+                <div class="skill-bar-bg"><div class="skill-progress" style="width: 80%;"></div></div>
+            </div>
+            <div class="skill-item">
+                <span>SCULPTURE</span>
+                <div class="skill-bar-bg"><div class="skill-progress" style="width: 70%;"></div></div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function toggleMenu() { document.getElementById('menuDropdown').classList.toggle('show'); }
+        function showOrderPage() {
+            document.getElementById('mainPage').style.display = 'none';
+            document.getElementById('shadowsPage').style.display = 'flex';
+            document.getElementById('orderInterface').style.display = 'block';
+            document.getElementById('skillsInterface').style.display = 'none';
+            toggleMenu();
+        }
+        function showSkillsPage() {
+            document.getElementById('mainPage').style.display = 'none';
+            document.getElementById('shadowsPage').style.display = 'flex';
+            document.getElementById('orderInterface').style.display = 'none';
+            document.getElementById('skillsInterface').style.display = 'block';
+            toggleMenu();
+        }
+        function closeShadows() {
+            document.getElementById('mainPage').style.display = 'block';
+            document.getElementById('shadowsPage').style.display = 'none';
+        }
+
+        // Effet Typewriter
+        const words = ["SCULPTEUR", "PEINTRE", "DESSINATEUR"];
+        let i = 0, j = 0, isDeleting = false;
+        function type() {
+            const current = words[i], typed = document.querySelector(".typed-text");
+            typed.textContent = isDeleting ? current.substring(0, j--) : current.substring(0, j++);
+            if (!isDeleting && j > current.length) { isDeleting = true; setTimeout(type, 2000); }
+            else if (isDeleting && j < 0) { isDeleting = false; i = (i + 1) % words.length; setTimeout(type, 500); }
+            else { setTimeout(type, isDeleting ? 50 : 150); }
+        }
+        document.addEventListener('DOMContentLoaded', type);
+
+        function sendOrderToWhatsApp() {
+            const style = document.getElementById('styleSelect').value;
+            const support = document.getElementById('supportSelect').value;
+            const desc = document.getElementById('descInput').value;
+            const message = `*COMMANDE KARNON ART*%0AStyle: ${style}%0ASupport: ${support}%0AInfo: ${desc}`;
+            window.open(`https://wa.me/2250546474849?text=${message}`, '_blank');
+        }
+    </script>
+</body>
+</html>
